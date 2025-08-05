@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Usman - Software Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 25%, #0a0a0a 50%, #1f1f1f 75%, #000000 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Advanced Animated Background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .particle.gold { 
+            background: radial-gradient(circle, #FFD700, #FFA500); 
+            box-shadow: 0 0 20px #FFD700;
+        }
+        .particle.blue { 
+            background: radial-gradient(circle, #0080FF, #00BFFF); 
+            box-shadow: 0 0 15px #0080FF;
+        }
+        .particle.green { 
+            background: radial-gradient(circle, #00FF00, #32CD32); 
+            box-shadow: 0 0 15px #00FF00;
+        }
+        .particle.red { 
+            background: radial-gradient(circle, #FF0000, #FF4500); 
+            box-shadow: 0 0 15px #FF0000;
+        }
+        .particle.yellow { 
+            background: radial-gradient(circle, #FFFF00, #FFD700); 
+            box-shadow: 0 0 15px #FFFF00;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0.7; }
+            25% { transform: translateY(-30px) translateX(20px) rotate(90deg); opacity: 1; }
+            50% { transform: translateY(-15px) translateX(-20px) rotate(180deg); opacity: 0.8; }
+            75% { transform: translateY(-25px) translateX(15px) rotate(270deg); opacity: 0.9; }
+        }
+
+        /* Enhanced Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(255,215,0,0.1) 50%, rgba(0,0,0,0.95) 100%);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav.scrolled {
+            background: linear-gradient(90deg, rgba(0,0,0,0.98) 0%, rgba(255,215,0,0.15) 50%, rgba(0,0,0,0.98) 100%);
+            border-bottom: 2px solid #FFD700;
+            box-shadow: 0 5px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #FFD700, #FFA500, #FF0000, #00FF00, #0080FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            animation: logoGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes logoGlow {
+            from { 
+                filter: drop-shadow(0 0 10px #FFD700);
+                transform: scale(1);
+            }
+            to { 
+                filter: drop-shadow(0 0 25px #FFD700) drop-shadow(0 0 35px #FFA500);
+                transform: scale(1.05);
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+            transform: translateY(-3px);
+            text-shadow: 0 0 10px #FFD700;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #FFD700, #FF0000, #00FF00, #0080FF);
+            transition: width 0.4s ease;
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Enhanced Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 128, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(255, 0, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 60% 40%, rgba(0, 255, 0, 0.08) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            animation: heroEntrance 2s ease-out;
+        }
+
+        @keyframes heroEntrance {
+            0% { opacity: 0; transform: translateY(100px) scale(0.8); }
+            50% { opacity: 0.5; transform: translateY(50px) scale(0.9); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #FFD700, #FFA500, #FF0000, #00FF00, #0080FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleShine 4s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+        }
+
+        @keyframes titleShine {
+            0%, 100% { filter: brightness(1) saturate(1); }
+            50% { filter: brightness(1.3) saturate(1.5); }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            color: #b0b0b0;
+            animation: subtitleFade 2s ease-out 0.5s both;
+        }
+
+        @keyframes subtitleFade {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background: linear-gradient(45deg, #FFD700, #FFA500, #FF0000);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+            animation: buttonPulse 3s ease-in-out infinite;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        @keyframes buttonPulse {
+            0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4); }
+            50% { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 35px rgba(255, 215, 0, 0.6); }
+        }
+
+        .cta-button:hover {
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(45deg, #FFA500, #FF0000, #FFD700);
+        }
+
+        /* Profile Photo Section */
+        .profile-photo {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            margin: 2rem auto;
+            border: 5px solid transparent;
+            background: linear-gradient(45deg, #FFD700, #FF0000, #00FF00, #0080FF) border-box;
+            background-clip: padding-box;
+            box-shadow: 
+                0 0 50px rgba(255, 215, 0, 0.4),
+                0 0 100px rgba(255, 0, 0, 0.2),
+                0 0 150px rgba(0, 255, 0, 0.1);
+            animation: photoFloat 6s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-photo::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, #FFD700, #FF0000, #00FF00, #0080FF, #FFFF00);
+            border-radius: 50%;
+            z-index: -1;
+            animation: borderRotate 8s linear infinite;
+        }
+
+        @keyframes borderRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes photoFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-15px) rotate(2deg); }
+            66% { transform: translateY(-8px) rotate(-2deg); }
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: all 0.4s ease;
+        }
+
+        .profile-photo:hover img {
+            transform: scale(1.1);
+            filter: brightness(1.1) contrast(1.1);
+        }
+
+        /* Enhanced Section Styling */
+        .section {
+            padding: 120px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FFD700, #FF0000, #00FF00, #0080FF, transparent);
+            animation: sectionLine 4s ease-in-out infinite;
+        }
+
+        @keyframes sectionLine {
+            0%, 100% { width: 200px; opacity: 0.5; }
+            50% { width: 400px; opacity: 1; }
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            background: linear-gradient(45deg, #FFD700, #FF0000, #00FF00, #0080FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            from { filter: drop-shadow(0 0 10px #FFD700); }
+            to { filter: drop-shadow(0 0 25px #FFD700) drop-shadow(0 0 35px #FF0000); }
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(90deg, #FFD700, #FF0000, #00FF00, #0080FF);
+            border-radius: 2px;
+            animation: underlineExpand 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes underlineExpand {
+            from { width: 150px; }
+            to { width: 250px; }
+        }
+
+        /* Enhanced About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 350px;
+            height: 350px;
+            border-radius: 30px;
+            background: linear-gradient(45deg, #FFD700, #FF0000, #00FF00, #0080FF);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10rem;
+            color: white;
+            margin: 0 auto;
+            animation: aboutImageRotate 15s linear infinite;
+            box-shadow: 
+                0 0 60px rgba(255, 215, 0, 0.4),
+                0 0 120px rgba(255, 0, 0, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .about-image:hover {
+            transform: scale(1.05);
+            box-shadow: 
+                0 0 80px rgba(255, 215, 0, 0.6),
+                0 0 160px rgba(255, 0, 0, 0.3);
+        }
+
+        @keyframes aboutImageRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .about-text {
+            font-size: 1.3rem;
+            color: #c0c0c0;
+            line-height: 1.8;
+        }
+
+        /* Enhanced Services Section */
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 0, 0, 0.05), rgba(0, 255, 0, 0.05));
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #FFD700, #FF0000, #00FF00, #0080FF);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) rotateY(5deg) rotateX(5deg);
+            box-shadow: 0 25px 50px rgba(255, 215, 0, 0.3);
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #FFD700, #FF0000, #00FF00, #0080FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: iconBounce 3s ease-in-out infinite;
+        }
+
+        @keyframes iconBounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) scale(1); }
+            40% { transform: translateY(-15px) scale(1.1); }
+            60% { transform: translateY(-8px) scale(1.05); }
+        }
+
+        /* Enhanced Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, rgba(0, 128, 255, 0.1), rgba(0, 255, 0, 0.05), rgba(255, 215, 0, 0.05));
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .skill-card:hover::after {
+            left: 100%;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            background: linear-gradient(135deg, rgba(0, 128, 255, 0.15), rgba(0, 255, 0, 0.1), rgba(255, 215, 0, 0.1));
+            border-color: #FFD700;
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .skill-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #0080FF, #00FF00, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: skillIconSpin 4s ease-in-out infinite;
+        }
+
+        @keyframes skillIconSpin {
+            0%, 100% { transform: rotateY(0deg); }
+            50% { transform: rotateY(180deg); }
+        }
+
+        /* Enhanced Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(0, 255, 0, 0.05), rgba(0, 128, 255, 0.05));
+            border-radius: 25px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            backdrop-filter: blur(15px);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(255, 0, 0, 0.1), rgba(0, 255, 0, 0.1), rgba(0, 128, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.4);
+            border-color: #FFD700;
+        }
+
+        .project-header {
+            background: linear-gradient(45deg, #FFD700, #FF0000, #00FF00, #0080FF);
+            padding: 2rem;
+            color: white;
+            text-align: center;
+        }
+
+        .project-content {
+            padding: 2.5rem;
+        }
+
+        .project-title {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #FFD700, #FF0000, #00FF00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .project-card:hover .project-title {
+            animation: projectTitleGlow 1s ease-in-out;
+        }
+
+        @keyframes projectTitleGlow {
+            0%, 100% { filter: drop-shadow(0 0 5px #FFD700); }
+            50% { filter: drop-shadow(0 0 15px #FFD700) drop-shadow(0 0 20px #FF0000); }
+        }
+
+        /* Tools Section */
+        .tools-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .tool-item {
+            background: linear-gradient(135deg, rgba(255, 255, 0, 0.1), rgba(255, 215, 0, 0.05));
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .tool-item:hover {
+            transform: translateY(-10px) rotateZ(2deg);
+            background: linear-gradient(135deg, rgba(255, 255, 0, 0.15), rgba(255, 215, 0, 0.1));
+            box-shadow: 0 15px 30px rgba(255, 255, 0, 0.3);
+            border-color: #FFFF00;
+        }
+
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #FFFF00, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: toolIconPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes toolIconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Enhanced Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, rgba(0, 255, 0, 0.1), rgba(0, 128, 255, 0.05));
+            padding: 3rem;
+            border-radius: 25px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 2px solid rgba(0, 255, 0, 0.2);
+            backdrop-filter: blur(15px);
+            position: relative;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-15px);
+            background: linear-gradient(135deg, rgba(0, 255, 0, 0.15), rgba(0, 128, 255, 0.1));
+            box-shadow: 0 25px 50px rgba(0, 255, 0, 0.3);
+            border-color: #00FF00;
+        }
+
+        .contact-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #00FF00, #0080FF, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: contactIconWave 3s ease-in-out infinite;
+        }
+
+        @keyframes contactIconWave {
+            0%, 100% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
+        }
+
+        /* Enhanced Hobbies Section */
+        .hobbies-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 4rem;
+            gap: 3rem;
+        }
+
+        .hobby-item {
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(255, 255, 0, 0.05));
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 2px solid rgba(255, 0, 0, 0.2);
+            backdrop-filter: blur(15px);
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hobby-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            animation: hobbyShine 4s ease-in-out infinite;
+        }
+
+        @keyframes hobbyShine {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hobby-item:hover {
+            transform: translateY(-15px) rotateZ(-3deg);
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.15), rgba(255, 255, 0, 0.1));
+            box-shadow: 0 25px 50px rgba(255, 0, 0, 0.3);
+            border-color: #FF0000;
+        }
+
+        .hobby-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #FF0000, #FFFF00, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: hobbyIconDance 5s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes hobbyIconDance {
+            0%, 100% { transform: rotate(-5deg) scale(1); }
+            25% { transform: rotate(5deg) scale(1.1); }
+            50% { transform: rotate(-3deg) scale(1.05); }
+            75% { transform: rotate(3deg) scale(1.08); }
+        }
+
+        /* Enhanced Footer */
+        footer {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(255, 215, 0, 0.1), rgba(0, 0, 0, 0.95));
+            text-align: center;
+            padding: 3rem;
+            border-top: 3px solid #FFD700;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #FFD700, #FF0000, #00FF00, #0080FF, #FFFF00, #FFD700);
+            animation: footerLine 3s linear infinite;
+        }
+
+        @keyframes footerLine {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* Modal for Project Details */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(0, 0, 0, 0.95));
+            margin: 5% auto;
+            padding: 3rem;
+            border: 2px solid #FFD700;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            animation: modalSlideIn 0.5s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translateY(-50px) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .close {
+            color: #FFD700;
+            float: right;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close:hover {
+            color: #FF0000;
+            transform: scale(1.2);
+        }
+
+        /* Enhanced Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .hobbies-container {
+                flex-direction: column;
+            }
+
+            .profile-photo {
+                width: 280px;
+                height: 280px;
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-container {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        /* Advanced Cursor Effect */
+        .cursor-trail {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            animation: cursorTrailFade 1.5s ease-out forwards;
+        }
+
+        @keyframes cursorTrailFade {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(3); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Advanced Animated Background Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Enhanced Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">Muhammad Usman</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#hobbies">Hobbies</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Enhanced Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Muhammad Usman</h1>
+            <p>Software Engineering Student | Full Stack Developer | Mobile App Developer | Problem Solver</p>
+            <a href="#about" class="cta-button">Explore My Journey</a>
+        </div>
+    </section>
+
+    <!-- Enhanced About Section -->
+    <section id="about" class="section fade-in">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div style="text-align: center;">
+                <div class="profile-photo">
+                    <img src="usman img.jpg" alt="Muhammad Usman Profile" onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=&quot;fas fa-user-graduate&quot; style=&quot;font-size: 8rem; color: white;&quot;></i>'">
+                </div>
+            </div>
+            <div class="about-text">
+                <p>Hello! I am Muhammad Usman, a dedicated Software Engineering student currently in my 6th semester at COMSATS University Islamabad. My educational journey began at Fazaia Degree College ARF Kamra, where I laid the foundation for my passion in technology and programming.</p>
+                <br>
+                <p>I'm passionate about creating innovative solutions and continuously learning new technologies. My expertise spans across web development, mobile app development, and software engineering. My goal is to become a skilled full-stack developer who can contribute meaningfully to the tech industry.</p>
+                <br>
+                <p>With hands-on experience in various programming languages and development tools, I enjoy tackling complex problems and turning ideas into reality through code.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section fade-in">
+        <h2 class="section-title">My Services</h2>
+        <div class="services-container">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-code"></i></div>
+                <h3>Software Development</h3>
+                <p>Custom software solutions using modern programming languages and frameworks</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-globe"></i></div>
+                <h3>Web Development</h3>
+                <p>Responsive and dynamic web applications with cutting-edge technologies</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3>App Development</h3>
+                <p>Native and cross-platform mobile applications for Android and iOS</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-palette"></i></div>
+                <h3>Web Designing</h3>
+                <p>Modern, user-friendly interfaces with focus on user experience and aesthetics</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Skills Section -->
+    <section id="skills" class="section fade-in">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-cuttlefish"></i></div>
+                <h3>C++</h3>
+                <p>Object-oriented programming and data structures</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-java"></i></div>
+                <h3>Java</h3>
+                <p>Desktop applications and software development</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-python"></i></div>
+                <h3>Python</h3>
+                <p>Web development, automation, and data analysis</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                <h3>HTML5</h3>
+                <p>Semantic markup and modern web structure</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
+                <h3>CSS3</h3>
+                <p>Advanced styling and responsive design</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-js-square"></i></div>
+                <h3>JavaScript</h3>
+                <p>Modern ES6+ and frontend frameworks</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-react"></i></div>
+                <h3>React</h3>
+                <p>Component-based UI development</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-android"></i></div>
+                <h3>Android Development</h3>
+                <p>Native mobile app development</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-database"></i></div>
+                <h3>Oracle Database</h3>
+                <p>Database design and management</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Projects Section -->
+    <section id="projects" class="section fade-in">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-container">
+            <div class="project-card" onclick="openModal('gaming-apps')">
+                <div class="project-header">
+                    <i class="fas fa-gamepad" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                    <h3 class="project-title">Android Gaming Apps</h3>
+                </div>
+                <div class="project-content">
+                    <p>Developed two engaging and interactive gaming experiences for Android users, showcasing creativity in mobile app development and user experience design.</p>
+                    <div style="margin-top: 1rem; color: #FFD700; font-weight: bold;">Click to view details →</div>
+                </div>
+            </div>
+            <div class="project-card" onclick="openModal('smartlocker')">
+                <div class="project-header">
+                    <i class="fas fa-lock" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                    <h3 class="project-title">SmartLocker Android App</h3>
+                </div>
+                <div class="project-content">
+                    <p>Created an innovative application designed to enhance user convenience and security, demonstrating skills in Android development and security implementation.</p>
+                    <div style="margin-top: 1rem; color: #FFD700; font-weight: bold;">Click to view details →</div>
+                </div>
+            </div>
+            <div class="project-card" onclick="openModal('bus-management')">
+                <div class="project-header">
+                    <i class="fas fa-bus" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                    <h3 class="project-title">Bus Management System</h3>
+                </div>
+                <div class="project-content">
+                    <p>Designed a comprehensive Java-based desktop solution to streamline bus management operations, showcasing database integration and GUI development skills.</p>
+                    <div style="margin-top: 1rem; color: #FFD700; font-weight: bold;">Click to view details →</div>
+                </div>
+            </div>
+            <div class="project-card" onclick="openModal('networking')">
+                <div class="project-header">
+                    <i class="fas fa-network-wired" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                    <h3 class="project-title">Computer Networking Project</h3>
+                </div>
+                <div class="project-content">
+                    <p>Gained practical experience in networking concepts and implementations through a basic-level computer networking project, exploring network protocols and configurations.</p>
+                    <div style="margin-top: 1rem; color: #FFD700; font-weight: bold;">Click to view details →</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools" class="section fade-in">
+        <h2 class="section-title">Development Tools</h2>
+        <div class="tools-container">
+            <div class="tool-item">
+                <div class="tool-icon"><i class="fas fa-code"></i></div>
+                <h3>VS Code</h3>
+                <p>Primary code editor</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon"><i class="fas fa-database"></i></div>
+                <h3>Oracle 19c/21c</h3>
+                <p>Database management</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon"><i class="fab fa-android"></i></div>
+                <h3>Android Studio</h3>
+                <p>Mobile app development</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon"><i class="fab fa-linux"></i></div>
+                <h3>Ubuntu & Kali Linux</h3>
+                <p>Operating systems</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon"><i class="fas fa-network-wired"></i></div>
+                <h3>Packet Tracer</h3>
+                <p>Network simulation</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon"><i class="fab fa-java"></i></div>
+                <h3>IntelliJ IDEA</h3>
+                <p>Java development</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon"><i class="fas fa-fire"></i></div>
+                <h3>Firebase</h3>
+                <p>Backend services</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon"><i class="fab fa-python"></i></div>
+                <h3>Anaconda</h3>
+                <p>Python environment</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon"><i class="fas fa-terminal"></i></div>
+                <h3>PyCharm</h3>
+                <p>Python IDE</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon"><i class="fas fa-flask"></i></div>
+                <h3>Google Colab</h3>
+                <p>Cloud development</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Currently Learning Section -->
+    <section id="focus" class="section fade-in">
+        <h2 class="section-title">Currently Learning</h2>
+        <div class="skills-container">
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-js-square"></i></div>
+                <h3>Advanced JavaScript</h3>
+                <p>ES6+, async programming, and modern JavaScript features</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-react"></i></div>
+                <h3>React Framework</h3>
+                <p>Component-based architecture and state management</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-robot"></i></div>
+                <h3>Kotlin</h3>
+                <p>Modern Android development with Kotlin</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-python"></i></div>
+                <h3>Advanced Python</h3>
+                <p>Web frameworks and data science applications</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Hobbies Section -->
+    <section id="hobbies" class="section fade-in">
+        <h2 class="section-title">My Hobbies</h2>
+        <div class="hobbies-container">
+            <div class="hobby-item">
+                <div class="hobby-icon"><i class="fas fa-code"></i></div>
+                <h3>Coding</h3>
+                <p>Continuously exploring new technologies and improving programming skills</p>
+            </div>
+            <div class="hobby-item">
+                <div class="hobby-icon"><i class="fas fa-mug-hot"></i></div>
+                <h3>Sipping Tea</h3>
+                <p>Finding inspiration and relaxation in a warm cup of tea</p>
+            </div>
+            <div class="hobby-item">
+                <div class="hobby-icon"><i class="fas fa-music"></i></div>
+                <h3>Listening to Music</h3>
+                <p>Creating a comfortable environment that fuels creativity</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Contact Section -->
+    <section id="contact" class="section fade-in">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                <h3>Email</h3>
+                <p>usmanghani73928@gmail.com</p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                <h3>Phone</h3>
+                <p>+92 3416847270<br>+92 3189119257</p>
+            </div>
+            <div class="contact-card">
+    <div class="contact-icon">
+        <a href="https://wa.me/923416847270" target="_blank" title="Chat on WhatsApp">
+            <i class="fab fa-whatsapp" style="font-size: 32px; color: green;"></i>
+        </a>
+    </div>
+    <h3>WhatsApp</h3>
+    <p>Click the icon to chat</p>
+</div>
+
+        </div>
+    </section>
+
+    <!-- Project Details Modals -->
+    <div id="gaming-apps" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('gaming-apps')">&times;</span>
+            <h2 style="color: #FFD700; margin-bottom: 2rem;">Android Gaming Apps</h2>
+            <div style="color: #c0c0c0; line-height: 1.8;">
+                <p><strong>Project Overview:</strong> Developed two engaging mobile gaming applications for Android platform.</p>
+                <br>
+                <p><strong>Technologies Used:</strong></p>
+                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                    <li>Java for Android development</li>
+                    <li>Android Studio IDE</li>
+                    <li>XML for UI design</li>
+                    <li>SQLite for local data storage</li>
+                </ul>
+                <br>
+                <p><strong>Key Features:</strong></p>
+                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                    <li>Interactive gameplay mechanics</li>
+                    <li>Score tracking and leaderboards</li>
+                    <li>Smooth animations and graphics</li>
+                    <li>User-friendly interface</li>
+                </ul>
+                <br>
+                <p style="color: #FFD700;"><em>Note: Source code and detailed UI screenshots will be added soon!</em></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="smartlocker" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('smartlocker')">&times;</span>
+            <h2 style="color: #FFD700; margin-bottom: 2rem;">SmartLocker Android App</h2>
+            <div style="color: #c0c0c0; line-height: 1.8;">
+                <p><strong>Project Overview:</strong> An innovative security application designed to enhance user convenience and safety.</p>
+                <br>
+                <p><strong>Technologies Used:</strong></p>
+                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                    <li>Java for Android development</li>
+                    <li>Firebase for backend services</li>
+                    <li>Android Studio IDE</li>
+                    <li>Biometric authentication APIs</li>
+                </ul>
+                <br>
+                <p><strong>Key Features:</strong></p>
+                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                    <li>Secure authentication system</li>
+                    <li>Cloud synchronization</li>
+                    <li>Real-time notifications</li>
+                    <li>User-friendly security interface</li>
+                </ul>
+                <br>
+                <p style="color: #FFD700;"><em>Note: Detailed project documentation and source code coming soon!</em></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="bus-management" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('bus-management')">&times;</span>
+            <h2 style="color: #FFD700; margin-bottom: 2rem;">Bus Management System</h2>
+            <div style="color: #c0c0c0; line-height: 1.8;">
+                <p><strong>Project Overview:</strong> A comprehensive desktop application for managing bus operations and schedules.</p>
+                <br>
+                <p><strong>Technologies Used:</strong></p>
+                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                    <li>Java for desktop application</li>
+                    <li>Oracle Database for data management</li>
+                    <li>JavaFX for user interface</li>
+                    <li>IntelliJ IDEA as development environment</li>
+                </ul>
+                <br>
+                <p><strong>Key Features:</strong></p>
+                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                    <li>Route management system</li>
+                    <li>Schedule tracking</li>
+                    <li>Passenger information management</li>
+                    <li>Reporting and analytics</li>
+                </ul>
+                <br>
+                <p style="color: #FFD700;"><em>Note: Complete source code and system architecture details available upon request!</em></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="networking" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('networking')">&times;</span>
+            <h2 style="color: #FFD700; margin-bottom: 2rem;">Computer Networking Project</h2>
+            <div style="color: #c0c0c0; line-height: 1.8;">
+                <p><strong>Project Overview:</strong> Practical implementation of computer networking concepts and protocols.</p>
+                <br>
+                <p><strong>Technologies Used:</strong></p>
+                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                    <li>Cisco Packet Tracer for simulation</li>
+                    <li>Network protocol configuration</li>
+                    <li>Ubuntu Linux for network setup</li>
+                    <li>Command line networking tools</li>
+                </ul>
+                <br>
+                <p><strong>Key Concepts Implemented:</strong></p>
+                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                    <li>Network topology design</li>
+                    <li>IP addressing and subnetting</li>
+                    <li>Router and switch configuration</li>
+                    <li>Network troubleshooting</li>
+                </ul>
+                <br>
+                <p style="color: #FFD700;"><em>Note: Network diagrams and configuration files will be shared soon!</em></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Footer -->
+    <footer>
+        <p>&copy; 2025 Muhammad Usman. Thank you for visiting my portfolio! I look forward to connecting with you and collaborating on exciting projects.</p>
+    </footer>
+
+    <script>
+        // Enhanced particle creation with multiple colors
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 80;
+            const colors = ['gold', 'blue', 'green', 'red', 'yellow'];
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = `particle ${colors[Math.floor(Math.random() * colors.length)]}`;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.width = Math.random() * 6 + 3 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+
+        // Enhanced smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Enhanced navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Enhanced scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Advanced cursor trail effect
+        document.addEventListener('mousemove', (e) => {
+            if (window.innerWidth > 768) {
+                const colors = ['#FFD700', '#FF0000', '#00FF00', '#0080FF', '#FFFF00'];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                const trail = document.createElement('div');
+                trail.className = 'cursor-trail';
+                trail.style.background = randomColor;
+                trail.style.left = (e.clientX - 4) + 'px';
+                trail.style.top = (e.clientY - 4) + 'px';
+                trail.style.boxShadow = `0 0 20px ${randomColor}`;
+                
+                document.body.appendChild(trail);
+
+                setTimeout(() => {
+                    if (trail.parentNode) {
+                        trail.parentNode.removeChild(trail);
+                    }
+                }, 1500);
+            }
+        });
+
+        // Initialize particles
+        createParticles();
+
+        // Add keyboard navigation for accessibility
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const openModals = document.querySelectorAll('.modal');
+                openModals.forEach(modal => {
+                    if (modal.style.display === 'block') {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
+        });
+
+        // Photo upload placeholder functionality
+        const profilePhoto = document.querySelector('.profile-photo img');
+        if (profilePhoto) {
+            profilePhoto.addEventListener('error', function() {
+                this.style.display = 'none';
+                this.parentNode.innerHTML = '<i class="fas fa-user-graduate" style="font-size: 8rem; color: white;"></i><div style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); font-size: 0.9rem; color: rgba(255,255,255,0.7);">Click to upload your photo</div>';
+                this.parentNode.style.cursor = 'pointer';
+                this.parentNode.addEventListener('click', () => {
+                    alert('Photo upload functionality will be added soon!\nFor now, replace the placeholder image URL in the code with your photo.');
+                });
+            });
+        }
+
+        console.log('🚀 Muhammad Usman\'s Advanced Portfolio Loaded Successfully! 🚀');
+    </script>
+</body>
+</html>
